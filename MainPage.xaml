@@ -10,6 +10,24 @@
             VerticalOptions="Center">
  
             <Label
+            Text="Selecciona una fruta"
+            FontSize="24"
+            HorizontalOptions="Center" />
+ 
+            <CollectionView
+                x:Name="frutasCollectionView"
+                SelectionMode="Single"
+                SelectionChanged="OnFrutaSeleccionada">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="15" Margin="0,5">
+                            <Label Text="{Binding Nombre}" FontSize="18" />
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- <Label
                 Text="¡Bienvenido!"
                 FontSize="28"
                 HorizontalOptions="Center" />
@@ -19,19 +37,22 @@
                 Text="Escribe tu nombre y presiona el botón"
                 FontSize="16"
                 HorizontalOptions="Center" />
- 
+
             <Entry
                 x:Name="nombreEntry"
                 Placeholder="Escribe tu nombre aquí"
                 FontSize="16" />
- 
             <Button
                 x:Name="saludarBtn"
                 Text="Saludar"
                 Clicked="OnSaludarClicked"
+                HorizontalOptions="Center" />    
+            <Button
+                x:Name="colorBtn"
+                Text="Cambiar color"
+                Clicked="OnColorClicked"
                 HorizontalOptions="Center" />
- 
+            <Slider x:Name="tamanoSlider" Minimum="10" Maximum="40" ValueChanged="OnTamanoChanged" /> -->
         </VerticalStackLayout>
     </ScrollView>
- 
 </ContentPage>
