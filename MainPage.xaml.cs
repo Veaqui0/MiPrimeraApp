@@ -40,35 +40,4 @@ public partial class MainPage : ContentPage
         frutasCollectionView.SelectedItem = null;
     }
 
- 
-    /* private void OnSaludarClicked(object sender, EventArgs e)
-    {
-        if (string.IsNullOrWhiteSpace(nombreEntry.Text))
-        {
-            saludoLabel.Text = "Por favor escribe un nombre";
-            return;
-        }
- 
-        saludoLabel.Text = $"¡Hola, {nombreEntry.Text}!";
-    }
-
-    private void OnColorClicked(object sender, EventArgs e)
-    {
-        var random = new Random();
-        var colores = new[] { Colors.LightBlue, Colors.LightGreen, Colors.LightPink, Colors.LightYellow };
-        this.BackgroundColor = colores[random.Next(colores.Length)];
-    }
-
-    private void OnModoToggled(object sender, ToggledEventArgs e)
-    {
-        this.BackgroundColor = e.Value ? Colors.Black : Colors.White;
-        saludoLabel.TextColor = e.Value ? Colors.White : Colors.Black;
-    }
-
-    private void OnTamanoChanged(object sender, ValueChangedEventArgs e)
-    {
-        saludoLabel.FontSize = e.NewValue;
-    } */
-
-
 }
