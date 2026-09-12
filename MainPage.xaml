@@ -10,28 +10,24 @@
             VerticalOptions="Center">
  
             <Label
-                Text="¡Bienvenido!"
-                FontSize="28"
-                HorizontalOptions="Center" />
+            Text="Selecciona una fruta"
+            FontSize="24"
+            HorizontalOptions="Center" />
  
-            <Label
-                x:Name="saludoLabel"
-                Text="Escribe tu nombre y presiona el botón"
-                FontSize="16"
-                HorizontalOptions="Center" />
- 
-            <Entry
-                x:Name="nombreEntry"
-                Placeholder="Escribe tu nombre aquí"
-                FontSize="16" />
- 
-            <Button
-                x:Name="saludarBtn"
-                Text="Saludar"
-                Clicked="OnSaludarClicked"
-                HorizontalOptions="Center" />
- 
+            <!--El elemento CollectionView nos muestra la lista de frutas que se han creado-->
+            <CollectionView
+                x:Name="frutasCollectionView"
+                SelectionMode="Single"
+                SelectionChanged="OnFrutaSeleccionada">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="15" Margin="0,5">
+                            <Label Text="{Binding Nombre}" FontSize="18" />
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
         </VerticalStackLayout>
     </ScrollView>
- 
 </ContentPage>

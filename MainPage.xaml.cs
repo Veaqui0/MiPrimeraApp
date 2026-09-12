@@ -1,20 +1,43 @@
-﻿namespace MiPrimeraApp;
+﻿/**
+* Programación orientada a objetos 2, App Movil, Victor Alvarez
+*/
+
+using MiPrimeraApp.Models;
+
+namespace MiPrimeraApp;
  
 public partial class MainPage : ContentPage
 {
+    
+    private List<Fruta> frutas = new()
+    {
+        new Fruta { Nombre = "Manzana", Descripcion = "Fruta roja o verde, crujiente y dulce." },
+        new Fruta { Nombre = "Banano",  Descripcion = "Fruta amarilla, rica en potasio." },
+        new Fruta { Nombre = "Naranja", Descripcion = "Cítrico jugoso, alto en vitamina C." },
+    };
+
+
     public MainPage()
     {
         InitializeComponent();
+        frutasCollectionView.ItemsSource = frutas;
     }
- 
-    private void OnSaludarClicked(object sender, EventArgs e)
+
+    private async void OnFrutaSeleccionada(object sender, SelectionChangedEventArgs e)
     {
-        if (string.IsNullOrWhiteSpace(nombreEntry.Text))
-        {
-            saludoLabel.Text = "Por favor escribe un nombre";
+        if (e.CurrentSelection.FirstOrDefault() is not Fruta frutaSeleccionada)
             return;
-        }
  
-        saludoLabel.Text = $"¡Hola, {nombreEntry.Text}!";
+        var parametros = new Dictionary<string, object>
+        {
+            { "NombreFruta", frutaSeleccionada.Nombre },
+            { "DescripcionFruta", frutaSeleccionada.Descripcion }
+        };
+ 
+        await Shell.Current.GoToAsync(nameof(DetalleFrutaPage), parametros);
+ 
+        // Deseleccionar para permitir volver a elegir la misma fruta más adelante
+        frutasCollectionView.SelectedItem = null;
     }
+
 }
