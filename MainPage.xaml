@@ -3,31 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MiPrimeraApp.MainPage">
  
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="20"
-            VerticalOptions="Center">
+    
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="20"
+        
+        VerticalOptions="Center">
  
-            <Label
-            Text="Selecciona una fruta"
-            FontSize="24"
-            HorizontalOptions="Center" />
+        <Label
+        Text="Selecciona una fruta"
+        FontSize="24"
+        HorizontalOptions="Center" />
  
-            <!--El elemento CollectionView nos muestra la lista de frutas que se han creado-->
-            <CollectionView
-                x:Name="frutasCollectionView"
-                SelectionMode="Single"
-                SelectionChanged="OnFrutaSeleccionada">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Border Padding="15" Margin="0,5">
-                            <Label Text="{Binding Nombre}" FontSize="18" />
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+        <!--El elemento CollectionView nos muestra la lista de frutas que se han creado-->
+        <CollectionView
+            x:Name="frutasCollectionView"
+            ItemsSource="{Binding Frutas}"
+            SelectionMode="Single"
+            SelectionChanged="OnFrutaSeleccionada">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="15" Margin="0,5">
+                        <Label Text="{Binding Nombre}" FontSize="18" />
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
-        </VerticalStackLayout>
-    </ScrollView>
+
+    </VerticalStackLayout>
+    
 </ContentPage>
