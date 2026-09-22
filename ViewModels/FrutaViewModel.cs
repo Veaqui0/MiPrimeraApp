@@ -9,7 +9,7 @@ public partial class FrutaViewModel : ObservableObject
 {
     public ObservableCollection<Fruta> Frutas { get; } = new()
     {
-        new Fruta { Nombre = "Manzana", Descripcion = "Fruta roja o verde, crujiente y dulce." },
+        new Fruta { Nombre = "Sandia", Descripcion = "Fruta de cubierta verde e interior rojo, crujiente y dulce." },
         new Fruta { Nombre = "Banano",  Descripcion = "Fruta amarilla, rica en potasio." },
         new Fruta { Nombre = "Naranja", Descripcion = "Cítrico jugoso, alto en vitamina C." },
     };
